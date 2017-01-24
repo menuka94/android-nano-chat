@@ -10,28 +10,30 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.android.menuka.firebasedemo_bygoogle.MainActivity">
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Message"
+        android:ems="10"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/btnSend">
+        android:id="@+id/txtMessage" />
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:text="Message"
-            android:ems="10"
-            android:id="@+id/txtMessage"
-            android:layout_weight="0.37" />
+    <Button
+        android:text="Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/txtMessage"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/btnSend" />
 
-        <Button
-            android:text="Send"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/button2"
-            android:layout_weight="0.37" />
-    </LinearLayout>
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/txtMessage"
+        android:id="@+id/listViewMessages" />
+
 </RelativeLayout>
