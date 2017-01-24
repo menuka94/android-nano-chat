@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "556928495670",
+    "firebase_url": "https://android-nano-chat.firebaseio.com",
+    "project_id": "android-nano-chat",
+    "storage_bucket": "android-nano-chat.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:556928495670:android:308baac972af251b",
+        "android_client_info": {
+          "package_name": "com.android.menuka.firebasedemo_bygoogle"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "556928495670-5665b8jo4qr2u4otrl0mpi1ejnjt27ht.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.android.menuka.firebasedemo_bygoogle",
+            "certificate_hash": "134C217C44F1A12706795FD80A06C7B0979F2B18"
+          }
+        },
+        {
+          "client_id": "556928495670-b1npl8he9ehdq6ae4tp3dmo5t5q9c1s0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA41MD2wv5TatkW-M5AXgpFlOrsCO1uGkg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "556928495670-b1npl8he9ehdq6ae4tp3dmo5t5q9c1s0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
