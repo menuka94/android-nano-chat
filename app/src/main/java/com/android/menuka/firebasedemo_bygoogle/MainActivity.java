@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.firebase.ui.database.FirebaseListAdapter;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
@@ -18,6 +19,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.LinkedList;
@@ -52,54 +54,23 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        final List<ChatMessage> messages = new LinkedList<>();
-        final ArrayAdapter<ChatMessage> adapter = new ArrayAdapter<ChatMessage>(
-                this, android.R.layout.two_line_list_item, messages
-        ){
-            @NonNull
+        Query recent = ref.limitToLast(3);
+
+        FirebaseListAdapter<ChatMessage> adapter = new FirebaseListAdapter<ChatMessage>(
+                this, ChatMessage.class, android.R.layout.two_line_list_item, recent
+        ) {
             @Override
-            public View getView(int position, View convertView, ViewGroup parent) {
-                if(convertView == null){
-                    convertView = getLayoutInflater().inflate(android.R.layout.two_line_list_item, parent, false);
-                }
+            protected void populateView(View v, ChatMessage chat, int position) {
 
-                ChatMessage chat = messages.get(position);
-                ((TextView)convertView.findViewById(android.R.id.text1)).setText(chat.getName());
-                ((TextView)convertView.findViewById(android.R.id.text2)).setText(chat.getMessage());
-
-                return convertView;
+                ((TextView)v.findViewById(android.R.id.text1)).setText(chat.getName());
+                ((TextView)v.findViewById(android.R.id.text2)).setText(chat.getMessage());
             }
         };
+
+
         listViewMessages.setAdapter(adapter);
 
-        ref.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                ChatMessage chat = dataSnapshot.getValue(ChatMessage.class);
-                messages.add(chat);
-                adapter.notifyDataSetChanged();
-            }
 
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
 
     }
 }
